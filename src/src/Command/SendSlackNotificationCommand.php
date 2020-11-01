@@ -16,7 +16,7 @@ use Symfony\Component\HttpClient\HttplugClient;
 
 class SendSlackNotificationCommand extends Command
 {
-    protected static $defaultName = 'app:slack-notifiocation';
+    protected static $defaultName = 'app:slack-notification';
     private $container;
 
     public function __construct(ContainerInterface $container)

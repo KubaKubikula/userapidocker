@@ -26,7 +26,7 @@ získame uživatele
 
 command který pošle notifikaci přes webhook
 
- php bin/console app:slack-notifiocation 2020-03-09 
+ php bin/console app:slack-notification 2020-03-09 
 
 ----------------------------------------
 
