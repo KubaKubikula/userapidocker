@@ -24,11 +24,15 @@ získame uživatele
 
  ---------------------------------------
 
- command který pošle notifikaci přes webhook
+command který pošle notifikaci přes webhook
 
  php bin/console app:slack-notifiocation 2020-03-09 
 
 ----------------------------------------
+
+testy
+
+ php bin/phpunit
 
 Zadání:
 Cílem je vytvořit API ve formátu JSON.

@@ -3,7 +3,7 @@ namespace App\Tests\Command;
 
 use App\Command\SendSlackNotificationCommand;
 use PHPUnit\Framework\TestCase;
-use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
 class SendSlackNotificationCommandTest extends TestCase
 {
@@ -22,8 +22,8 @@ class SendSlackNotificationCommandTest extends TestCase
     */
     public function testInputDate($date, $expected)
     {
-        $entityManager = $this->createMock(EntityManagerInterface::class);
-        $sendSlackNotificationCommand = new SendSlackNotificationCommand($entityManager);
+        $container = $this->createMock(ContainerInterface::class);
+        $sendSlackNotificationCommand = new SendSlackNotificationCommand($container);
         $result = $sendSlackNotificationCommand->dateMatch($date);
 
         $this->assertSame($result, $expected);
