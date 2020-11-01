@@ -2,7 +2,6 @@
 
 namespace App\Controller;
 
-
 use Symfony\Component\Routing\Annotation\Route;
 use Doctrine\ORM\EntityManagerInterface;
 use App\Repository\UsersRepository;
@@ -24,7 +23,7 @@ class TestApiController extends AbstractController
             ->findAll();
         
         $usersArray = [];
-        foreach($users as $user) {
+        foreach ($users as $user) {
             $usersArray[] = [
                 'id' => $user->getId(),
                 'name' => $user->getName(),
@@ -39,17 +38,16 @@ class TestApiController extends AbstractController
      * @Route("/api/users", methods={"POST"})
      */
     public function createAction(Request $request): Response
-    {   
+    {
         $name = $request->request->get('name');
         $anniversaryDate = $request->request->get('anniversary_date');
-        
         if ($name === null || $anniversaryDate === null) {
             return new Response(
                 'Missing "name" (string)  or "anniversary_date" (YYYY-MM-DD) params ',
                 Response::HTTP_INTERNAL_SERVER_ERROR
-            );    
+            );
         }
-        
+
         $newUser = new User();
         $newUser->setName($name);
         $newUser->setAnniversaryDate(new \DateTime($anniversaryDate));

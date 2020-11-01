@@ -34,12 +34,11 @@ class SendSlackNotificationCommand extends Command
     {
         $notificationDate = $input->getArgument('date');
 
-        if ($this->dateMatch($notificationDate)) {  
-            $users = $this->getUsersForDate($notificationDate);     
+        if ($this->dateMatch($notificationDate)) {
+            $users = $this->getUsersForDate($notificationDate);
             if ($users !== []) {
                 $this->slackApi($users);
             }
-            
         }
 
         return 0;
@@ -63,7 +62,7 @@ class SendSlackNotificationCommand extends Command
         $httpClient = new HttplugClient();
         $request = $httpClient->createRequest(
             'POST',
-            'https://hooks.slack.com/services/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',
+            'https://hooks.slack.com/services/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',
             [
                 'Content-type' => 'application/json',
             ],
@@ -76,7 +75,7 @@ class SendSlackNotificationCommand extends Command
     }
 
     private function getUsersForDate(string $date)
-    { 
+    {
         $usersRepository = $this->container->get('doctrine')->getRepository(User::class);
 
         return $usersRepository->findByDateField($date);
