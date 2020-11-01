@@ -6,7 +6,29 @@ docker-compose up
 
 pak přes endpointy
 
-localhost/api/users {GET, POST, PUT, DELETE}
+vytvoříme uživatele
+
+ curl -X POST -H 'Content-type: application/json' --data '{"name":"Jakub Zientek", "anniversary_date":"2020-03-09"}' localhost/api/users
+
+získame uživatele
+
+ curl -X GET -H 'Content-type: application/json' localhost/api/users
+
+ editujem uživatele
+ 
+  curl -X PUT -H 'Content-type: application/json' --data '{"id": "1","name":"Jakub Zientek", "anniversary_date":"2020-03-09"}' localhost/api/users
+
+ smažem uživatele
+  
+   curl -X REMOVE -H 'Content-type: application/json' localhost/api/users
+
+ ---------------------------------------
+
+ command který pošle notifikaci přes webhook
+
+ php bin/console app:slack-notifiocation 2020-03-09 
+
+----------------------------------------
 
 Zadání:
 Cílem je vytvořit API ve formátu JSON.
@@ -26,12 +48,5 @@ Na konci očekáváme, že si budeme moci zavolat přes curl endpointy, pohrát 
 zkusíme si zavolat command s pár datumy a podíváme se jak máš zelené testy.
 Následně si domluvíme call, kde spolu s naším vývojářem projdete kód a proběhne diskuze
 podobná code review.
-
-
-TODO:
-
-dát to na git
-podívat se jak udělat testy ke crudu
-Crud udělat pomocí form submitu (asi jak to dělal ten ind)
 
 # userapidocker
