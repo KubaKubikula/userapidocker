@@ -1,3 +1,14 @@
+Instalace:
+
+cd docker
+docker-compose up
+(vytvoří a spustí kontejnery)
+
+pak přes endpointy
+
+localhost/api/users {GET, POST, PUT, DELETE}
+
+Zadání:
 Cílem je vytvořit API ve formátu JSON.
 TestApi bude obsahovat CRUD uživatelů. Uživatel má name(string), anniversaryDate(date).
 - vypsat seznam uživatelů
