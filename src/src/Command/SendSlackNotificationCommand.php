@@ -62,7 +62,8 @@ class SendSlackNotificationCommand extends Command
         $httpClient = new HttplugClient();
         $request = $httpClient->createRequest(
             'POST',
-            'https://hooks.slack.com/services/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',
+            // tohle si nahraďtě webhookem z vaší aplikace https://api.slack.com/apps?new_app=1
+            'https://hooks.slack.com/services/XXXXXXXXXX/XXXXXXX/XXXXXXXXX',
             [
                 'Content-type' => 'application/json',
             ],
